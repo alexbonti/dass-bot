@@ -11,8 +11,8 @@ let parser= require('json2csv')
 let http = require('http').createServer(app);
 let io = require('socket.io')(http);
 
-const url='https://246db96d1d00.ngrok.io'
-//const url='https://dass-bot.au-syd.mybluemix.net'
+//const url='https://246db96d1d00.ngrok.io'
+const url='https://dass-bot.au-syd.mybluemix.net'
 let dbName=process.env.DBNAME ||'users-t1'
 const answersDB = 'answers'
 
