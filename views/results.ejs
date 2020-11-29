@@ -26,16 +26,14 @@
         <nav>
             <div class="nav-wrapper" style=" background-color: #ae93d9;">
                 <a href="#" class="brand-logo" style="height: 100%;">
-                    <img src="assets/ale.jpg" alt="" class="circle responsive-img" style="height: 100%;padding-top: 5px; padding-left: 15px;"> <!-- notice the "circle" class -->
+                    <img src="assets/LP_LOGO.png" alt="" class="circle responsive-img" style="height: 100%;padding-top: 5px; padding-left: 15px;"> <!-- notice the "circle" class -->
     
                 </a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="https://www.linkedin.com/in/alessiobonti">Linkedin</a></li>
-                </ul>
+               
             </div>
         </nav>
     </header>
-    <main style=" background-color:#eab0c3;">
+    <main style=" background-color:#ffffff;">
 
         <div class="container">
             <!-- <h1> <%= title %>  </h1> -->
@@ -56,19 +54,21 @@
                 <table class="" id="answersTable">
                     <thead>
                         <tr>
-                            <th>Users</th>
-                            <th>Question</th>
-                            <th>Answer Value</th>
-                            <th>Time</th>
+                            <th>User</th>
+                            <th>Completed Time</th>
+                            <th>View</th>
+                            <th>Download</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
                         <% for(var i=0; i < users.length; i++) {%>
                             <tr>
                                 <td> <%= users[i].userId %> </td>
-                                <td> <%= users[i].questionNumber %> </td>
-                                <td> <%= users[i].answer %> </td>
                                 <td> <%= timeCompleted[i] %> </td>
+                                <td><a href="<%= `${url}/bot/profile?userId=${users[i].userId}` %>">Profile </a>  </td>
+
+                                <td><a href="<%= `${url}/bot/history?userId=${users[i].userId}` %>">Download </a>  </td>
                             </tr>
 
                             <% } %>

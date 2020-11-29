@@ -2,12 +2,17 @@ let express = require("express");
 let app = express();
 let bodyParser = require('body-parser');
 let path = require('path');
+var moment = require('moment'); // require
+let parser= require('json2csv')
+
+
 
 //var app = require('express')();
 let http = require('http').createServer(app);
 let io = require('socket.io')(http);
 
-const url='https://dass-bot.au-syd.mybluemix.net'
+const url='https://246db96d1d00.ngrok.io'
+//const url='https://dass-bot.au-syd.mybluemix.net'
 let dbName=process.env.DBNAME ||'users-t1'
 const answersDB = 'answers'
 
@@ -88,11 +93,10 @@ app.get('/test', (req, res) => {
   res.send("All good")
 })
 
-recordInteraction = async (userId) => {
+const recordInteraction = async (interaction) => {
   await client.connect();
-  let interaction = client.db("chatbot").collection("users").insertOne()
-
-
+  const interactionRecord= await client.db("chatbot").collection("allAnswers").insertOne(interaction)
+  console.log('History Record Inserted')
 }
 
 handleQuestion = async () => {
@@ -234,15 +238,20 @@ const createNewUser = async (userId) => {
 
 }
 
-const getUserData = async (userId) => {
+
+const buildHistoryCSV=(data)=>{
+  const json2csv = new parser.Parser();
+  const csv = json2csv.parse(data);
+  return csv
+
+}
+
+const getUserHistory = async (userId) => {
   try {
     await client.connect();
-    const userData = await client.db("chatbot").collection(dbName).findOne({ userId })
+    const userData = await client.db("chatbot").collection('allAnswers').find({ userId }).toArray();
 
-    //console.log('[getUserData]:',userData)
-
-
-
+    console.log('[getUserHistory]:',userData)
     return userData;
 
   } catch (err) {
@@ -250,7 +259,22 @@ const getUserData = async (userId) => {
   }
 }
 
+const getUserData = async (userId) => {
+  try {
+    await client.connect();
+    const userData = await client.db("chatbot").collection(dbName).findOne({ userId })
+
+    //console.log('[getUserData]:',userData)
+    return userData;
+
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+
 const updateAnswer = async (userId, timestamp, parameters) => {
+  
   // answer , question , followup
   const userData = await getUserData(userId);
 
@@ -261,6 +285,12 @@ const updateAnswer = async (userId, timestamp, parameters) => {
   let questionIndex = parseInt(parameters.question)
 
   // console.log('[Check Timestamp]', timestamp);
+
+  let inteaction={
+    userId,timestamp,questionIndex,answer:userAnswer.value
+  }
+
+  recordInteraction(inteaction)
 
   client.db("chatbot").collection(answersDB).insertOne({ 
     "questionNumber": questionIndex, 
@@ -312,6 +342,9 @@ const handleLogicState = async (webhookRequest) => {
 
   let msg = {}
 
+  let interaction={
+    timestamp,userId,logicState,
+  }
   /* 
   logicState is defined as follow:
   0: Check if user is new or an existing one.
@@ -538,13 +571,14 @@ app.get("/results", async (request, response) => {
       const testResults = await client.db("chatbot").collection(dbName).find({}).toArray();
 
       // console.log('[Test Results]:', testResults)
-
+     
       let timeCompleted = [];
       testResults.forEach(result => {
-        timeCompleted.push(new Date(result.dateCompleted));
+        console.log(result.dateCompleted)
+        timeCompleted.push(moment(result.dateComplete).format('l - LT') );
       })
 
-      response.render('results', { title: "Test Results", users: testResults, timeCompleted });
+      response.render('results', { title: "Test Results", users: testResults, timeCompleted,url });
 
     } catch (err) {
       console.log(err);
@@ -552,6 +586,22 @@ app.get("/results", async (request, response) => {
   } catch (err) {
 
   }
+});
+
+app.get("/bot/history", async (request, response) => {
+  const userId = request.query.userId;
+
+
+  const userData = await getUserHistory(userId)
+  let historyCSV=buildHistoryCSV(userData)
+  response.header('Content-Type', 'text/csv');
+  response.attachment(userId+'_history.csv');
+  return response.send(historyCSV);
+  //let mentalState = profileTracker(userData);
+
+  //console.log("[mentalState]: ", mentalState)
+
+  //response.send(userData);
 });
 
 //socket test

@@ -3,14 +3,15 @@
   "version": "0.0.0",
   "dependencies": {
     "cf-deployment-tracker-client": "*",
-    "ejs": "^3.1.5",
     "commander": "^2.6.0",
+    "ejs": "^3.1.5",
     "express": "^4.14.1",
     "http-post": "^0.1.1",
     "http-proxy": "^1.8.1",
-    "socket.io": "^2.3.0",
+    "json2csv": "^5.0.5",
+    "moment": "^2.29.1",
     "mongodb": "^3.6.2",
-    "moment": "^2.29.1"
+    "socket.io": "^2.3.0"
   },
   "main": "server.js",
   "scripts": {
