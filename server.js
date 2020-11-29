@@ -318,7 +318,7 @@ const handleLogicState = async (webhookRequest) => {
             "buttons": [
               {
                 "text": "Show results",
-                "postback": `https://325b973324f4.ngrok.io/bot/profile?userId=${userId}`
+                "postback": `https://dass-bot.au-syd.mybluemix.net/bot/profile?userId=${userId}`
               },
               {
                 "text": "Home",
