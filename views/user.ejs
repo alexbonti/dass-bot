@@ -22,29 +22,27 @@
         <nav>
             <div class="nav-wrapper" style=" background-color: #ae93d9;">
                 <a href="#" class="brand-logo" style="height: 100%;">
-                    <img src="/assets/ale.jpg" alt="" class="circle responsive-img" style="height: 100%;padding-top: 5px; padding-left: 15px;"> <!-- notice the "circle" class -->
+                    <img src="/assets/emotional-intelligence.svg" alt="" class="circle responsive-img" style="height: 100%;padding-top: 5px; padding-left: 15px;"> <!-- notice the "circle" class -->
                 </a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="https://www.linkedin.com/in/alessiobonti">Linkedin</a></li>
-                </ul>
+             
             </div>
         </nav>
     </header>
-    <main style="background-color:#eab0c3;">
+    <main style="background-color:white;">
 
         <div class="container">
             <div class="row center">
 
                 <div>
-                    <h1 class="col s12" style="text-align: center;"> <%= title %>  </h1>
+                    <h2 class="col s12" style="text-align: center;"> Life Test  </h1>
                 </div>
 
                 <div class="col s12 m6 l12" style="text-align: center;">
-                    <h5> Hello user </h5>
+                    <h5> Hi user <%= userId %></h5>
                 </div>
-
                 <div class="col s12 m6 l12" style="text-align: center;">
-                    <h5> <%= userId %> </h5>
+                    <p>The following are the results based on your latest answers. This is a simplified version of the DASS21 test, each question provides a 
+                        score of 0 (<b>never</b>), 1.5 (<b>sometimes</b>) and 3 (<b>Always</b>). Please find how to interpret the scores at the bottom of this page.</p>
                 </div>
                 
             </div>
@@ -62,7 +60,7 @@
             
                     <% if ((mentalState.depressionValue >= 5) && (mentalState.depressionValue <= 6)) { %>  
                         <div id="depression-b" >
-                            Depression <%= mentalState.depressionValue %>
+                            Depression <b><%= mentalState.depressionValue %>
                                 
                         </div> <% } %>
         
@@ -165,7 +163,7 @@
                             <tr>
                                 <td> Q<%= i+1 %>. <%= questionsContent[i] %> </td>
                                 <td> <%= userData.answers[i].value == 0 ? "Never" : userData.answers[i].value == 1.5 ? "Sometimes" : "Always" %> 
-                        (<%= userData.answers[i].value %>) </td>
+                       </td>
                               
                             </tr>
     
@@ -175,14 +173,14 @@
                 </table>
             </div>
 
-            <div class="row center">
-                <!-- <div class="col"> -->
+            <!--div class="row center">
+                <div class="col">
                     <a id="printButton" class="waves-effect waves-light btn-large " style="background-color: #ae93d9;">
                         <i class="material-icons left" style="color:white; font-size: larger;">file_download</i>
                         Print your results
                     </a>
-                <!-- </div> -->
-            </div>
+                </div>
+            </div-->
             
             <div class="row center" >
 
@@ -254,10 +252,10 @@
     </main>
 
     <footer class="page-footer" style=" background-color: #ae93d9;">
-        <div class="footer-copyright">
+        <div class="footer-copyright"></div>
             <div class="container">
-                © 2020 Copyright AlexNexus
-                <a class="grey-text text-lighten-4 right" href="https://github.com/alexbonti/node-material"><img src="assets/git-logo.svg" style="height: 20px; padding-right: 15px;"></i>Boiler plate here !</a>
+                To find out more vist 
+                <a class="grey-text text-lighten-4" href="https://www.thecalculator.co/health/DASS-21-Depression-Anxiety-Stress-Scale-Test-938.html"> DASS21 Test</a>
             </div>
         </div>
     </footer>
