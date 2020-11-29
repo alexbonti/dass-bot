@@ -1,0 +1,316 @@
+
+/* Score interpretation table */
+h1 {
+  color: #3f0e49;
+}
+
+h2 {
+  color: #3f0e49;
+}
+
+body{
+  font-family: sans-serif;
+
+}
+
+
+.responsive-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    border-radius: 5px 5px 0 0;
+    display: inline-table;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 255, 224, 0.671);
+    border-top:  solid rgba(255, 255, 224, 0.87);
+    font-family: sans-serif;
+    background-color: rgba(255, 255, 224, 0.589);
+    outline: solid 2px;
+  }
+  
+  
+  .responsive-table th{
+    text-align: center;
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+  
+
+  .responsive-table td {
+    padding: 12px 15px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .responsive-table tr {
+    /* padding: 12px 15px; */
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .responsive-table tbody tr:nth-child(1) td:nth-child(1) {
+    background-color: lightgreen;
+    font-weight: bold;
+    text-align: center;
+ }
+
+ .responsive-table tbody tr:nth-child(2) td:nth-child(1) {
+    font-weight: bold;
+    text-align: center;
+    background-color:#9fe6ec;
+}
+
+.responsive-table tbody tr:nth-child(3) td:nth-child(1) {
+    font-weight: bold;
+    text-align: center;
+    background-color: #f0d485;
+}
+
+.responsive-table tbody tr:nth-child(4) td:nth-child(1) {
+    font-weight: bold;
+    text-align: center;
+    background-color: #f19c0a;
+}
+
+.responsive-table tbody tr:nth-child(5) td:nth-child(1) {
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(241, 86, 86, 0.836);
+}
+/*
+.responsive-table tbody tr:nth-child(1) td:nth-child(2), tbody tr:nth-child(1) td:nth-child(3),tbody tr:nth-child(1) td:nth-child(4) {
+  background-color: rgba(144, 238, 144, 0.548);
+}
+
+*/
+
+  /*Qs table*/
+
+  #Questions-table {
+  /* border-collapse: collapse; */
+  margin: 25px 0;
+  border-radius: 5px 5px 0 0;
+  border: 2px solid #ae93d9;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(189, 28, 149, 0.15);
+  table-layout: auto;
+  background-color: rgba(255, 255, 224, 0.589);
+  }
+
+#Questions-table th{
+
+  padding: 12px 15px;
+  font-size: 18px;
+  font-weight: bolder;
+  
+}
+
+#Questions-table td {
+  padding: 12px 15px;
+  font-size: 17px;
+}
+
+
+
+.score{
+text-align: center;
+font-size: 22px;
+font-weight: bold;
+  
+}
+
+/*scores grid*/
+
+/* .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 5px; 
+
+} */
+
+/*scores background color*/
+
+#anxiety-a {
+  padding: 20px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: middle;
+  text-align: center;
+  border-collapse: collapse;
+  margin-bottom: 5px; 
+  border-radius: 1em;
+  background-color: lightgreen;
+}
+
+
+#anxiety-b {
+  padding: 20px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: middle;
+  text-align: center;
+  border-collapse: collapse;
+  margin-bottom: 5px; 
+  border-radius: 1em;
+  background-color:#9fe6ec;
+}
+
+#anxiety-c {
+  padding: 20px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: middle;
+  text-align: center;
+  border-collapse: collapse;
+  border-radius: 1em;
+  margin-bottom: 5px; 
+  background-color: #f0d485;
+}
+
+#anxiety-d {
+  padding: 20px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: middle;
+  text-align: center;
+  border-collapse: collapse;
+  border-radius: 1em;
+  margin-bottom: 5px; 
+  background-color: #f19c0a;
+}
+
+#anxiety-e {
+  padding: 20px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: middle;
+  text-align: center;
+  border-collapse: collapse;
+  border-radius: 1em;
+  margin-bottom: 5px; 
+  background-color: rgba(241, 86, 86, 0.836);
+}
+
+#depression-a {
+  padding: 20px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: middle;
+  text-align: center;
+  border-collapse: collapse;
+  border-radius: 1em;
+  margin-bottom: 5px; 
+  background-color: lightgreen;
+}
+
+
+#depression-b {
+  padding: 20px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: middle;
+  text-align: center;
+  border-collapse: collapse;
+  border-radius: 1em;
+  margin-bottom: 5px; 
+  background-color: #9fe6ec;
+}
+
+#depression-c {
+  padding: 20px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: middle;
+  text-align: center;
+  border-collapse: collapse;
+  border-radius: 1em;
+  margin-bottom: 5px; 
+  background-color: #f0d485;
+}
+
+#depression-d {
+  padding: 20px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: middle;
+  text-align: center;
+  border-collapse: collapse;
+  border-radius: 1em;
+  margin-bottom: 5px; 
+  background-color: #f19c0a;
+}
+
+#depression-e {
+  padding: 20px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: middle;
+  text-align: center;
+  border-collapse: collapse;
+  border-radius: 1em;
+  margin-bottom: 5px; 
+  background-color: rgba(241, 86, 86, 0.836);
+}
+
+#stress-a {
+  padding: 20px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: middle;
+  text-align: center;
+  border-collapse: collapse;
+  border-radius: 1em;
+  margin-bottom: 5px; 
+  background-color: lightgreen;
+}
+
+
+#stress-b {
+  padding: 20px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: middle;
+  text-align: center;
+  border-collapse: collapse;
+  border-radius: 1em;
+  margin-bottom: 5px; 
+  background-color:#9fe6ec;
+}
+
+#stress-c {
+  padding: 20px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: middle;
+  text-align: center;
+  border-collapse: collapse;
+  border-radius: 1em;
+  margin-bottom: 5px; 
+  background-color: #f0d485;
+}
+
+#stress-d {
+  padding: 20px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: middle;
+  text-align: center;
+  border-collapse: collapse;
+  border-radius: 1em;
+  margin-bottom: 5px; 
+  background-color: #f19c0a;
+}
+
+#stress-e {
+  padding: 20px 20px;
+  font-size: 17px;
+  font-weight: bold;
+  text-align: middle;
+  text-align: center;
+  border-collapse: collapse;
+  border-radius: 1em;
+  margin-bottom: 5px; 
+  background-color: rgba(241, 86, 86, 0.836);
+}
+
+
+  

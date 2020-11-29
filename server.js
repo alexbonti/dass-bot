@@ -8,7 +8,7 @@ let http = require('http').createServer(app);
 let io = require('socket.io')(http);
 
 
-const dbName='users-t1'
+let dbName=process.env.DBNAME ||'users-t1'
 const answersDB = 'answers'
 
 

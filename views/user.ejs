@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> <%= title %> </title>
+
+    <!-- Compiled and minified CSS -->
+    <!-- Materialze-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Materialize icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href= "/public/css/user.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper" style=" background-color: #ae93d9;">
+                <a href="#" class="brand-logo" style="height: 100%;">
+                    <img src="/assets/ale.jpg" alt="" class="circle responsive-img" style="height: 100%;padding-top: 5px; padding-left: 15px;"> <!-- notice the "circle" class -->
+                </a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="https://www.linkedin.com/in/alessiobonti">Linkedin</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main style="background-color:#eab0c3;">
+
+        <div class="container">
+            <div class="row center">
+
+                <div>
+                    <h1 class="col s12" style="text-align: center;"> <%= title %>  </h1>
+                </div>
+
+                <div class="col s12 m6 l12" style="text-align: center;">
+                    <h5> Hello user </h5>
+                </div>
+
+                <div class="col s12 m6 l12" style="text-align: center;">
+                    <h5> <%= userId %> </h5>
+                </div>
+                
+            </div>
+
+            <div class="row center score">Your Score</div>
+
+            <div class="row center"> 
+
+                <div class="col s12 m4 l4">
+                    <% if ((mentalState.depressionValue >= 0) && (mentalState.depressionValue <= 4)) { %>
+                        <div id="depression-a" >
+                            Depression <%= mentalState.depressionValue %>
+                        
+                        </div> <%  } %>
+            
+                    <% if ((mentalState.depressionValue >= 5) && (mentalState.depressionValue <= 6)) { %>  
+                        <div id="depression-b" >
+                            Depression <%= mentalState.depressionValue %>
+                                
+                        </div> <% } %>
+        
+                    <% if ((mentalState.depressionValue >= 7) && (mentalState.depressionValue <= 10)) { %>  
+                        <div id="depression-c" >
+                            Depression <%= mentalState.depressionValue %>
+                                
+                        </div> <% } %>
+        
+                    <% if ((mentalState.depressionValue >= 11) && (mentalState.depressionValue <= 13.5)) { %>  
+                        <div id="depression-d" >
+                            Depression <%= mentalState.depressionValue %>
+                                
+                        </div> <% } %>
+        
+                    <% if ((mentalState.depressionValue >= 14)) { %>  
+                        <div id="depression-e" >
+                            Depression <%= mentalState.depressionValue %>
+                                
+                        </div> <% } %>
+                </div>
+
+                <div class="col s12 m4 l4">
+                    <% if ((mentalState.anxietyValue >= 0) && (mentalState.anxietyValue <= 3)) { %>
+                        <div id="anxiety-a" >
+                            Anxiety <%= mentalState.anxietyValue %>
+                        
+                        </div> <%  } %>
+        
+                    <% if ((mentalState.anxietyValue >= 4) && (mentalState.anxietyValue <= 5)) { %>  
+                        <div id="anxiety-b" >
+                            Anxiety <%= mentalState.anxietyValue %>
+                                
+                        </div> <% } %>
+        
+                    <% if ((mentalState.anxietyValue >= 6) && (mentalState.anxietyValue <= 7)) { %>  
+                        <div id="anxiety-c" >
+                            Anxiety <%= mentalState.anxietyValue %>
+                                
+                        </div> <% } %>
+        
+                    <% if ((mentalState.anxietyValue >= 8) && (mentalState.anxietyValue <= 9.5)) { %>  
+                        <div id="anxiety-d" >
+                            Anxiety <%= mentalState.anxietyValue %>
+                                
+                        </div> <% } %>
+        
+                    <% if ((mentalState.anxietyValue >= 10)) { %>  
+                        <div id="anxiety-e" >
+                            Anxiety <%= mentalState.anxietyValue %>
+                                
+                        </div> <% } %>
+                </div>
+                
+                <div class="col s12 m4 l4">
+                    <% if ((mentalState.stressValue >= 0) && (mentalState.stressValue <= 7)) { %>
+                        <div id="stress-a" >
+                            Stress <%= mentalState.stressValue %>
+                        
+                        </div> <%  } %>
+        
+                    <% if ((mentalState.stressValue >= 8) && (mentalState.stressValue <= 9)) { %>  
+                        <div id="stress-b" >
+                            Stress <%= mentalState.stressValue %>
+                                
+                        </div> <% } %>
+        
+                    <% if ((mentalState.stressValue >= 10) && (mentalState.stressValue <= 12)) { %>  
+                        <div id="stress-c" >
+                            Stress <%= mentalState.stressValue %>
+                                
+                        </div> <% } %>
+        
+                    <% if ((mentalState.stressValue >= 13) && (mentalState.stressValue <= 16.5)) { %>  
+                        <div id="stress-d" >
+                            Stress <%= mentalState.stressValue %>
+                                
+                        </div> <% } %>
+        
+                    <% if ((mentalState.stressValue >= 17)) { %>  
+                        <div id="stress-e" >
+                            Stress <%= mentalState.stressValue %>
+                                
+                        </div> <% } %>
+                </div>
+
+            </div>
+         
+
+            <div class="row">
+                <table id="Questions-table">
+                    <thead>
+                        <tr>
+                            <th>Question</th>
+                            <th>Answers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i<userData.answers.length; i++) {%>
+                            <tr>
+                                <td> Q<%= i+1 %>. <%= questionsContent[i] %> </td>
+                                <td> <%= userData.answers[i].value == 0 ? "Never" : userData.answers[i].value == 1.5 ? "Sometimes" : "Always" %> 
+                        (<%= userData.answers[i].value %>) </td>
+                              
+                            </tr>
+    
+                         <% } %>
+                        
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row center">
+                <!-- <div class="col"> -->
+                    <a id="printButton" class="waves-effect waves-light btn-large " style="background-color: #ae93d9;">
+                        <i class="material-icons left" style="color:white; font-size: larger;">file_download</i>
+                        Print your results
+                    </a>
+                <!-- </div> -->
+            </div>
+            
+            <div class="row center" >
+
+                <div class="col s12 m12 l12">
+                    <h2> Score Interpretation </h2>
+                </div>
+
+                <div class="col s12 m12 l12">
+                    <p style="color: #3f0e49;">
+                        The 21 item <b>D</b>epression <b>A</b>nxiety <b>S</b>tress <b>S</b>cale questionnaire is used as a quantitative measure of distress along the 3 axes of
+                        of depression, anxiety and stress reactions and management. Each of the questions is rated from 0 to 3. Therefore each of 
+                        the axes presents partial scores of 0 to 18-24 depending on the number of questions assigned.
+                    </p>
+                    <p style="color: #3f0e49;">
+                        There have been created cut off points for each of the severity categories, however, 
+                        these should be cautiously used in conjunction to other clinical and observational data and are described in the table below:
+                    </p>
+                </div>
+
+                <div class="col s12 m12 l12">
+                    <table class="responsive-table">
+                        <thead>
+                            <tr>
+                                <th>Level/Disorder</th>
+                                <th>Depression</th>
+                                <th>Anxiety</th>
+                                <th>Stress</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Normal</td>
+                                <td>0 - 4</td>
+                                <td>0 - 3</td>
+                                <td>0 - 7</td>
+                            </tr>
+                            <tr>
+                                <td>Mild</td>
+                                <td>5 - 6</td>
+                                <td>4 - 5</td>
+                                <td>8 - 9</td>
+                            </tr>
+                            <tr>
+                                <td>Moderate</td>
+                                <td>7 - 10</td>
+                                <td>6 - 7</td>
+                                <td>10 - 12</td>
+                            </tr>
+                            <tr>
+                                <td>Severe</td>
+                                <td>11 - 13</td>
+                                <td>8 - 9</td>
+                                <td>13 - 16</td>
+                            </tr>
+                            <tr>
+                                <td>Extremely severe</td>
+                                <td>≥ 14</td>
+                                <td>≥ 10</td>
+                                <td>≥ 17</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+    
+        </div>
+    
+    </main>
+
+    <footer class="page-footer" style=" background-color: #ae93d9;">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2020 Copyright AlexNexus
+                <a class="grey-text text-lighten-4 right" href="https://github.com/alexbonti/node-material"><img src="assets/git-logo.svg" style="height: 20px; padding-right: 15px;"></i>Boiler plate here !</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <!-- socket IO Served by the server -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="../public/js/user.js"></script>
+   
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+/* Research results  table*/
+
+h1 {
+  color: #3f0e49;
+}
+
+h2 {
+  color: #3f0e49;
+}
+
+/* body {
+  background-color:#eab0c3;
+} */
+
+#answersTable {
+    border-collapse: collapse;
+    table-layout: auto;
+    /* margin: 25px 0; */
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(189, 28, 149, 0.15);
+    border-top: 2px solid #ae93d9;
+    }
+  
+    #answersTable thead tr {
+      background-color: #ae93d9;
+      color: #ffffff;
+    }
+  
+    #answersTable th{
+      text-align: center;
+      font-size: 15px;
+      font-weight: bolder;
+    }
+  
+    #answersTable tbody tr {
+      border: 2px solid #ae93d9;
+      background-color: rgba(255, 255, 224, 0.589);
+      color: #000000;
+    }
+  
+    #answersTable td {
+      padding: 12px 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+  
+  #answersTable tr:last-of-type {
+    border-bottom: 2px solid #ae93d9;
+    }
+
+a.paginate_button {
+  background-color: #ae93d9;
+  overflow-x:auto;  
+}

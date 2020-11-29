@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> <%= title %> </title>
+
+    <!-- Compiled and minified CSS -->
+    <!-- Materialze-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Materialize icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+
+
+    <link href="styles.css" rel="stylesheet">
+    <link href= "/public/css/results.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper" style=" background-color: #ae93d9;">
+                <a href="#" class="brand-logo" style="height: 100%;">
+                    <img src="assets/ale.jpg" alt="" class="circle responsive-img" style="height: 100%;padding-top: 5px; padding-left: 15px;"> <!-- notice the "circle" class -->
+    
+                </a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="https://www.linkedin.com/in/alessiobonti">Linkedin</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main style=" background-color:#eab0c3;">
+
+        <div class="container">
+            <!-- <h1> <%= title %>  </h1> -->
+
+            <!-- <div class="container" > -->
+            <div class="row center">
+                <h2> Test Results Table </h2>
+            </div>
+
+            <div class="row center">
+                <a id="csvButton" class="waves-effect waves-light btn-large " style="background-color: #ae93d9;">
+                    <i class="material-icons left" style="color:white; font-size: larger;">file_download</i>
+                    Download
+                </a>
+            </div>
+
+            <div class="row" style="overflow-x:auto;">
+                <table class="" id="answersTable">
+                    <thead>
+                        <tr>
+                            <th>Users</th>
+                            <th>Question</th>
+                            <th>Answer Value</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i < users.length; i++) {%>
+                            <tr>
+                                <td> <%= users[i].userId %> </td>
+                                <td> <%= users[i].questionNumber %> </td>
+                                <td> <%= users[i].answer %> </td>
+                                <td> <%= timeCompleted[i] %> </td>
+                            </tr>
+
+                            <% } %>
+                        
+                    </tbody>
+                </table>
+            </div>    
+          
+        </div>
+    
+    </main>
+    
+    <footer class="page-footer" style=" background-color: #ae93d9;">
+        <div class="footer-copyright">
+          <div class="container">
+          © 2020 Copyright AlexNexus
+          <a class="grey-text text-lighten-4 right" href="https://github.com/alexbonti/node-material"><img src="assets/git-logo.svg" style="height: 20px; padding-right: 15px;"></i>Boiler plate here !</a>
+          </div>
+        </div>
+    </footer>
+
+
+
+
+    <!-- socket IO Served by the server -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+
+    <script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script> 
+
+    <script src="../public/js/results.js"></script>
+
+</body>
+
+</html>
